@@ -7,7 +7,7 @@
                     <component-nav></component-nav>
                 </div>
                 <div class="layout-component-content">
-                    <p v-for="n in 40">wewe</p>
+                    <router-view></router-view>
                 </div>
             </div>
         </div>

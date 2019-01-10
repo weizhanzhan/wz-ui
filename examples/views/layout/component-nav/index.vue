@@ -1,20 +1,25 @@
 <template>
     <ul class="layout-component-nav-ul">
-        <!-- <li class="nav-item">
-            <a href="">更新日志</a>
-        </li> -->
         <li class="nav-item">
-            <a href="">开发指南</a>
+            <a href="javascript:;">开发指南</a>
+            <ul-item ulclass="sub-nav">安装</ul-item>
         </li>
         <li class="nav-item">
-            <a href="">组件</a>
+            <a href="javascript:;">组件</a>
+            <div class="nav-group">
+                <div class="nav-group-title">Basic</div>
+                <ul-item ulclass="pure-menu-list">Button</ul-item>
+            </div>
         </li>
     </ul>
 </template>
 
 <script>
+import UlItem from '../../../common/ul-item.vue'
 export default {
-
+    components:{
+        UlItem
+    }
 }
 </script>
 

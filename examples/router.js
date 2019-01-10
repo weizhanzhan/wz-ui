@@ -10,8 +10,16 @@ const router = new VueRouter({
             component:()=>import('./views/home/index.vue')
         },
         {
-            path:'/aa',
-            component:()=>import('./views/layout/index.vue')
+            path:'/components',
+            name:'layout',
+            component:()=>import('./views/layout/index.vue'),
+            children:[
+                {
+                    path:'button',
+                    name:'button',
+                    component:()=>import('./views/demo/button')
+                }
+            ]
         }
     ]
 })
