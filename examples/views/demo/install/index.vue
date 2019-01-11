@@ -1,7 +1,5 @@
 <template>
-    <div>
-        <div v-for="n in 10" :key="n">{{n}}Button</div>
-    </div>
+    <div>安装</div>
 </template>
 
 <script>

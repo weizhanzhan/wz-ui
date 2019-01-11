@@ -80,13 +80,13 @@
 }
 .layout-content{
     height: 100%;
-    margin-top: 70px
+    margin-top: 65px
 }
 .layout-content-view{
     width: 1140px;
     margin: auto;
-  
-    margin-top:5px;
+    /* height: 100%; */
+    /* margin-top:5px; */
     box-shadow: 0 2px 8px #f0f1f2;
 }
 
@@ -96,7 +96,7 @@
     width: 240px;
     background: #ffffff;
     position: fixed;
-    top: 70px;
+    top: 65px;
     bottom: 0;
     border-right: 1px solid #f1f4f8;
     /*  不加这个的话 hover设置scroll会出现抖动 */
@@ -126,7 +126,7 @@
     padding: 0;
     margin: 0
 }
-.sub-nav .nav-item a,.pure-menu-list .nav-item a{
+/* .sub-nav .nav-item a,.pure-menu-list .nav-item a{
     display: block;
     font-size: 14px;
     color: #444;
@@ -134,6 +134,18 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     font-weight: 400;
+} */
+.layout-component-nav-ul .nav-item .nav-item a{
+    display: block;
+    font-size: 14px;
+    color: #444;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: 400;
+}
+.layout-component-nav-ul .nav-item .nav-item a:hover{
+    color: #1890ff
 }
 
 .layout-component-nav-ul .nav-group-title{
@@ -143,7 +155,8 @@
     margin-top: 15px
 }
 .layout-component-content{
-    padding-left: 270px
+    padding-left: 270px;
+    padding-top: 5px
 }
 
 
@@ -155,6 +168,7 @@
     left: 0;
     top: 0;
     height: 65px;
+    z-index: 2;
 }
 .topnav {
     overflow: hidden;

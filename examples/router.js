@@ -15,9 +15,19 @@ const router = new VueRouter({
             component:()=>import('./views/layout/index.vue'),
             children:[
                 {
+                    path:'install',
+                    name:'install',
+                    component:()=>import('./views/demo/install')
+                },
+                {
                     path:'button',
                     name:'button',
                     component:()=>import('./views/demo/button')
+                },
+                {
+                    path:'icon',
+                    name:'icon',
+                    component:()=>import('./views/demo/wz-icon/')
                 }
             ]
         }

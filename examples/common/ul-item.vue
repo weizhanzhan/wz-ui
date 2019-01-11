@@ -1,19 +1,21 @@
 <template>
     <ul :class="[ulclass]">
         <li class="nav-item">
-            <a href="javascript:;">
-                <slot></slot>
-            </a>
+            <router-link :to="to">
+               <slot></slot>
+            </router-link>
         </li>
     </ul>
 </template>
 
 <script>
 export default {
-    props:["ulclass"]
+    props:["ulclass","to"]
 }
 </script>
 
 <style>
-
+.router-link-exact-active{
+    color:#1890ff !important
+}
 </style>

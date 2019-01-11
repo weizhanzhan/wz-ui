@@ -22,5 +22,17 @@ module.exports = {
         // 修改它的选项...
           return options
         })
+  },
+  configureWebpack: (config) => {
+    config.module.rules.push({
+      test: /\.md$/, 
+      use: [ 
+        { loader: 'html-loader' }, 
+        { 
+          loader: 'markdown-loader',
+          options: {} 
+        } 
+      ] 
+    })
   }
 }
