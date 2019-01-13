@@ -80,13 +80,13 @@
 }
 .layout-content{
     height: 100%;
-    margin-top: 65px
+    box-sizing: border-box;
+    padding-top: 65px;
 }
 .layout-content-view{
     width: 1140px;
     margin: auto;
-    /* height: 100%; */
-    /* margin-top:5px; */
+    height: 100%;
     box-shadow: 0 2px 8px #f0f1f2;
 }
 
@@ -98,6 +98,7 @@
     position: fixed;
     top: 65px;
     bottom: 0;
+    box-sizing: border-box;
     border-right: 1px solid #f1f4f8;
     /*  不加这个的话 hover设置scroll会出现抖动 */
     overflow-y: hidden;
