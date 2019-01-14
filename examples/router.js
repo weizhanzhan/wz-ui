@@ -27,7 +27,7 @@ const router = new VueRouter({
                 {
                     path:'icon',
                     name:'icon',
-                    component:()=>import('./views/demo/wz-icon/')
+                    component:()=>import('./views/demo/wz-icon/index.md')
                 }
             ]
         }

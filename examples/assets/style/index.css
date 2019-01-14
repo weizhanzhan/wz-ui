@@ -86,7 +86,7 @@
 .layout-content-view{
     width: 1140px;
     margin: auto;
-    height: 100%;
+    min-height: 100%;
     box-shadow: 0 2px 8px #f0f1f2;
 }
 
@@ -156,8 +156,8 @@
     margin-top: 15px
 }
 .layout-component-content{
-    padding-left: 270px;
-    padding-top: 5px
+  
+    padding: 5px 10px 0 250px
 }
 
 
