@@ -19,7 +19,7 @@ export default {
     },
     methods:{
         changeActive(){
-            this.$router.push('/components')
+            this.$router.push('/install')
             this.isActive=true
             setTimeout(()=>{
                 this.isActive=false

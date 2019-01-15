@@ -42,7 +42,8 @@ const router = new VueRouter({
             component: r => require.ensure([], () => r(require('./views/home/index.vue')))
         },
         {
-            path:'/components',
+            path:'/',
+            redirect:'/install',
             name:'layout',
             component: r => require.ensure([],() => r(require('./views/layout/index.vue'))),
             children:[
@@ -62,6 +63,10 @@ const router = new VueRouter({
                     component:r => require.ensure([],() => r(require('./views/demo/wz-icon/index.md')))
                 }
             ]
+        },
+        {
+            path:'*',
+            redirect:'/'
         }
     ]
 })
