@@ -20,7 +20,8 @@ import UlItem from '../../../common/ul-item.vue'
 export default {
     components:{
         UlItem
-    }
+    },
+    
 }
 </script>
 

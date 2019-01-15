@@ -2,6 +2,7 @@ const markdownRender = require('markdown-it')()
 module.exports = {
   //解决打包后空白
   publicPath: './',
+  lintOnSave:false,//关闭eslint检测
    // 修改 src 为 examples
   pages: {
     index: {
@@ -10,6 +11,7 @@ module.exports = {
       filename: 'index.html'
     }
   },
+ 
   // 强制内联CSS
   //css: { extract: false },
   // 扩展 webpack 配置，使 packages 加入编译

@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    {{lang}}
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <router-view></router-view>
   </div>
@@ -8,7 +9,22 @@
 <script>
 
 export default {
-  name: 'app'
+  name: 'app',
+  provide() {
+          return {
+              app: this
+          }
+      },
+      data() {
+          return {
+              lang: 'zh-CN'
+          }
+      },
+      methods: {
+          changeLang(lang) {
+              this.lang = lang
+          }
+      },
 }
 </script>
 

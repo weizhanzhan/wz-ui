@@ -7,6 +7,7 @@
                     <component-nav></component-nav>
                 </div>
                 <div class="layout-component-content">
+
                     <router-view></router-view>
                 </div>
             </div>
@@ -15,14 +16,16 @@
 </template>
 
 <script>
-import LayoutHeader from './header/index'
-import ComponentNav from './component-nav/index'
-export default {
-    components:{
-        LayoutHeader,
-        ComponentNav
+    import LayoutHeader from './header/index'
+    import ComponentNav from './component-nav/index'
+    export default {
+      
+        components: {
+            LayoutHeader,
+            ComponentNav
+        },
+     
     }
-}
 </script>
 
 <style>
