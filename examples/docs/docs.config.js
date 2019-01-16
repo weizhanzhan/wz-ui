@@ -34,11 +34,39 @@ module.exports = {
             }
         ]
     },
-    // 'en-US':{
-    //     nav:[
-    //         {
-
-    //         }
-    //     ]
-    // }
+    'en-US':{
+        nav:[
+            {
+                name:'Guide',
+                groups:[
+                    {
+                        list:[
+                            {
+                                path:'/install',
+                                title:'install'
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                name:'Components',
+                groups:[
+                    {
+                        groupName:'Basic',
+                        list:[
+                            {
+                                path:'/button',
+                                title:'Button'
+                            },
+                            {
+                                path:'/icon',
+                                title:'Icon'
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
 }

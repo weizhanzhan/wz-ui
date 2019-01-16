@@ -3,38 +3,47 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 import DocConfig from './docs/docs.config.js'
-const routes = []
-Object.keys(DocConfig).forEach( lang => {
-    
-    const navs = DocConfig[lang].nav || []
+import DemoConfig from './docs/demo.config'
 
-    // navs.map( n =>{
-    //     routes.push({
-    //         path:`/${lang}/${n.name}`
-    //     })
-    // })
-  
-    navs.forEach( nav =>{
-
-        nav.groups.forEach(group =>{
-            const navList = group.list
-            navList.forEach( list =>{
-                console.log(list)
+const registerRoute =()=>{
+    const routes = []
+    Object.keys(DocConfig).forEach( lang => {
+        
+        const navs = DocConfig[lang].nav || []
+        function AddRoute(pages,langs){
+        
+            let { path } = pages
+            if(path){
+                path = path.replace('/','')
+                const component = DemoConfig[`${path}.${langs}`]     
                 routes.push({
-                    path:`/${lang}/${list.path}`,
+                    path:`/${lang}/${path}`,
+                    component,
                     meta:{
                         lang,
-                        name:list.title
+                        name:pages.title
                     }
                 })
-            })
-        })
-        
-      
-    })
-    console.log(routes)
-})
+            }
+        }
+    
+        navs.forEach( nav =>{
 
+            nav.groups.forEach(group =>{
+                const navList = group.list
+                navList.forEach( list =>{
+
+                    AddRoute(list,lang)
+
+                })
+            })
+            
+        
+        })
+    })
+    return routes
+}
+console.log(registerRoute())
 const router = new VueRouter({
     routes:[
         {
@@ -47,21 +56,22 @@ const router = new VueRouter({
             name:'layout',
             component: r => require.ensure([],() => r(require('./views/layout/index.vue'))),
             children:[
-                {
-                    path:'install',
-                    name:'install',
-                    component: r => require.ensure([],() => r(require('./views/demo/install')))
-                },
-                {
-                    path:'button',
-                    name:'button',
-                    component:r => require.ensure([],() => r(require('./views/demo/button')))
-                },
-                {
-                    path:'icon',
-                    name:'icon',
-                    component:r => require.ensure([],() => r(require('./views/demo/wz-icon/index.md')))
-                }
+                // {
+                //     path:'install',
+                //     name:'install',
+                //     component: r => require.ensure([],() => r(require('./views/demo/install')))
+                // },
+                // {
+                //     path:'button',
+                //     name:'button',
+                //     component:r => require.ensure([],() => r(require('./views/demo/button')))
+                // },
+                // {
+                //     path:'icon',
+                //     name:'icon',
+                //     component:r => require.ensure([],() => r(require('./views/demo/wz-icon/index.md')))
+                // }
+                ...registerRoute()
             ]
         },
         {

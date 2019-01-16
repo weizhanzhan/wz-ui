@@ -19,7 +19,7 @@ export default {
     },
     methods:{
         changeActive(){
-            this.$router.push('/install')
+            this.$router.push('/zh-CN/install')
             this.isActive=true
             setTimeout(()=>{
                 this.isActive=false
