@@ -1,4 +1,6 @@
 export default {
+    '_home':()=>import('../views/home/index.vue'),
+    '_layout':()=>import('../views/layout/index.vue'),
     'install.en-US':()=>import('../views/demo/install'),
     'install.zh-CN':()=>import('../views/demo/install'),
     'button.en-US':()=>import('../views/demo/button/index.vue'),

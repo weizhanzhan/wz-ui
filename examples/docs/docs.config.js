@@ -1,4 +1,16 @@
 module.exports = {
+    'base':{
+        home:{
+            path:'/',
+            title:'初始页'
+        },
+        layout:{
+            path:'/',
+            redirect:'/install',
+            title:'layout',
+            children:'nav'
+        }
+    },
     'zh-CN':{
         nav:[
             {
