@@ -1,10 +1,11 @@
 // 导入颜色选择器组件
 import colorPicker from './color-picker'
-
+import Button from './button'
 
 // 存储组件列表
 const components = [
-    colorPicker
+    colorPicker,
+    Button
 ]
 
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，则所有的组件都将被注册
@@ -27,7 +28,8 @@ if(typeof window !== 'undefined' && window.Vue) {
 
 export { //按需导入
     install,
-    colorPicker
+    colorPicker,
+    Button
 }
 export default { //全部导入
     install

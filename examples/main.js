@@ -10,10 +10,10 @@ Vue.use(VueComponent)
 
 import './assets/icon/iconfont.css'
 import './assets/style/index.css'
-
+// import './assets/style/demo.css'
 
 //全部导入组件库 
-import wzUI from '../packages/index'
+import wzUI from '../packages/src/index'
 Vue.use(wzUI)
 //按需加载
 // import { colorPicker } from '../packages/index'
