@@ -37,18 +37,12 @@ const registerRoute =()=>{
     })
     return routes
 }
-console.log(registerRoute())
-
 const initRoute = function(){
-
     const { base } = DocConfig
     let routes = []
-
     Object.keys(base).forEach(b=>{
-
         const component = DemoConfig[`_${b}`] ?DemoConfig[`_${b}`]:'' 
-        const children = base[b].children?registerRoute():''
-       
+        const children = base[b].children?registerRoute():''   
         routes.push({
             path:base[b].path,
             name:base[b].title,
@@ -57,7 +51,6 @@ const initRoute = function(){
             children
         })
     })
-    console.log(routes)
     return routes
 }
 console.log(initRoute())
