@@ -1,70 +1,24 @@
 <template>
-    <button class="wx-button" :class="[
-            size?'wx-button-'+size:'',
-            type?'wx-button--'+type:'',     
+    <button 
+        class="wz-button" 
+        :class="[
+            size?'wz-button-'+size:'',
+            type?'wz-button--'+type:'', 
         ]"
-        :style="[]" ref="rippleButton" @click="getFoucs(this)">
-        <div class="ripple" :style="[RippleColor]" ref="ripple">
-        </div>
-        <i class="iconfont icon-loading" v-if="loading"></i>
+        :style="[
+            disabled?disabledStyle:'',
+            loading&&!disabled?loadingStyle:''
+        ]" 
+        ref="rippleButton" 
+        @click="getFoucs(this)">
+        <div class="ripple" :style="[RippleColor]" ref="ripple"> </div>
+        <i class="iconfont icon-loading" v-show="loading"></i>
         <slot></slot>
     </button>
 </template>
 
 <script>
-    export default {
-        name: 'wzButton',
-        props: {
-            ripple: Boolean,
-            loading: Boolean,
-            disabled: Boolean,
-            rippleColor: {
-                type: String,
-                default () {
-                    return 'rgba(255, 255, 255, 0.5)'
-                }
-            },
-            size: {
-                type: String,
-                default () {
-                    return 'normal'
-                }
-            },
-            type: {
-                type: String,
-                default () {
-                    return 'default'
-                }
-            }
-        },
-        computed: {
-            RippleColor() {
-                return {
-                    'background': this.rippleColor
-                }
-            }
-        },
-        data() {
-            return {
-                touchState: false
-            }
-        },
-
-        methods: {
-            getFoucs() {
-                this.$emit('click', this);
-
-                if (!this.ripple) return;
-
-
-                const ripples = new Ripple('rippleButton', 'ripple', this, 'touch-scale')
-
-                ripples._init()
-
-            }
-        },
-
-    }
+ 
     class Ripple {
         constructor(wrapper, item, component, calssName) {
             this.rippleWrapper = component.$refs[wrapper]
@@ -92,11 +46,10 @@
             this.rippleItem.style.width = size + 'px';
         }
         SetWrapperItemPosition(size) {
-
             // var rippleX = parseInt(event.pageX - this.rippleWrapper.offsetLeft) - (size / 2);
             // var rippleY = parseInt(event.pageY - this.rippleWrapper.offsetTop) - (size / 2);
             // this.rippleItem.style.top = rippleY + 'px'
-            // this.rippleItem.style.left = rippleX +'px'
+            // this.rippleItem.style.left = rippleX + 'px'
 
             //pageX 如果父层定位relative的话 效果会出错，位置偏移 所以用offsetX
 
@@ -105,12 +58,83 @@
             this.rippleItem.style.left = (event.offsetX - size / 2) + 'px'
 
             this.rippleItem.classList.add(this.calssName)
-
         }
+    }
+    export default {
+        name: 'wzButton',
+        props: {
+            ripple: Boolean,
+            loading: Boolean,
+            disabled: {
+                type:Boolean,
+                default(){
+                    return false
+                }
+            },
+            rippleColor: {
+                type: String,
+                default () {
+                    return 'rgba(255, 255, 255, 0.5)'
+                }
+            },
+            size: {
+                type: String,
+                default () {
+                    return 'normal'
+                }
+            },
+            type: {
+                type: String,
+                default () {
+                    return 'default'
+                }
+            }
+        },
+        computed: {
+            RippleColor() {
+                return {
+                    'background': this.rippleColor
+                }
+            },
+            disabledStyle(){
+                return {
+                    'background':'#eee',
+                    'border':'1px solid #eee'
+                }
+            },
+            loadingStyle(){
+                 return {
+                    'opacity':'0.5',
+                    
+                }
+            }
+        },
+        methods: {
+            getFoucs() {
+                if(this.disabled) return
+
+                this.$emit('click', this);
+
+                if (!this.ripple) return;
+
+                const ripples = new Ripple('rippleButton', 'ripple', this, 'touch-scale')
+
+                ripples._init()
+            }
+        }
+       
     }
 </script>
 
 <style scoped>
+    .testl{
+        width: 100px;
+        height: 10px;
+        display: inline-block;
+        position: absolute;
+        left: 10px;
+        top:16px
+    }
     .touch-scale {
         animation: ripple 0.6s linear
     }
@@ -131,14 +155,13 @@
         height: 10px
     }
 
-    .wx-button {
-
+    .wz-button {
+        
         display: inline-block;
         white-space: nowrap;
         cursor: pointer;
         background: #fff;
         border: 1px solid #dcdfe6;
-        border-color: #dcdfe6;
         color: #606266;
         text-align: center;
         box-sizing: border-box;
@@ -146,72 +169,93 @@
         margin: 0;
         font-weight: 400;
         border-radius: 4px;
+        font-size: 16px;
         position: relative;
         overflow: hidden
     }
-
-    .wx-button i {
+    .wz-button+.wz-button{
+        margin-left: 10px
+    }
+    .wz-button i {
         display: inline-block;
-        animation: roate 0.5s infinite linear;
-        margin-right: 5px
+        animation: roate 1s infinite linear;
+        margin-right: 5px   
+    }
+    .wz-button img{
+        width: 16px;
+        animation: roate 2s linear infinite;
+
     }
 
     @keyframes roate {
-        0% {
+        /* 0% {
             transform: rotate(180deg)
         }
 
         100% {
             transform: rotate(360deg)
+        } */
+
+        0% {
+            transform: rotateZ(0deg);
         }
+        100% {
+            transform: rotateZ(360deg);
+        }
+
     }
 
-    .wx-button-normal {
-        padding: 12px 20px;
-        font-size: 14px;
+    .wz-button-normal {
+        padding: 12px 23px;
+        font-size: 16px;
     }
 
-    .wx-button-small {
-        padding: 9px 15px;
-        font-size: 13px;
+    .wz-button-small {
+        padding: 8px 15px;
+        font-size: 16px;
     }
 
-    .wx-button-mini {
-        padding: 6px 15px;
-        font-size: 12px;
+    .wz-button-mini {
+        padding: 6px 10px;
+        font-size: 16px;
     }
 
-    .wx-button--primary {
+    .wz-button--primary {
         background-color: #1890ff;
+        border: 1px solid #1890ff;
         color: #fff;
-        border: 0;
+      
     }
 
-    .wx-button--success {
+    .wz-button--success {
         background-color: #a0d911;
+        border: 1px solid #a0d911;
         color: #fff;
-        border: 0;
+      
     }
 
-    .wx-button--warning {
+    .wz-button--warning {
         background-color: #fa8c16;
+        border: 1px solid #fa8c16;
         color: #fff;
-        border: 0;
+     
     }
 
-    .wx-button--danger {
+    .wz-button--danger {
         background-color: #f5222d;
+        border: 1px solid #f5222d;
         color: #fff;
-        border: 0;
+      
     }
 
-    .wx-button--text {
+    .wz-button--text {
         background: unset;
         color: #000000;
-        border: 0;
+      
     }
 
-    .wx-button--text:active {
+    .wz-button--text:active {
         background-color: #ffd591
     }
+
 </style>

@@ -30,9 +30,7 @@ const registerRoute =()=>{
                 navList.forEach( list =>{
                     AddRoute(list,lang)
                 })
-            })
-            
-        
+            })    
         })
     })
     return routes

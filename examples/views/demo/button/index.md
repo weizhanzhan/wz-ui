@@ -15,6 +15,7 @@
     </div>
     <div class="wz-demo">
         <h3>loading</h3>
+        <wz-button type="primary" :loading="true" >normal</wz-button>
         <wz-button :loading="true">normal</wz-button>
         <wz-button :loading="true" size="small">small</wz-button>
         <wz-button :loading="true" size="mini">mini</wz-button>

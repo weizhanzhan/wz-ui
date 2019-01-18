@@ -19,8 +19,8 @@ export default {
           }
       },
       watch:{
-          'this.$route'(val){
-              console.log(11,val)
+          '$route'(route){
+              this.lang = route.meta.lang?route.meta.lang:'zh-CN'
           }
       },
       methods: {
