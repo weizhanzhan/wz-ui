@@ -158,4 +158,29 @@
   .layout-component-content section a:hover{
       opacity: 0.4;
   }
+  .layout-component-content section table{
+    /* border-collapse:collapse;
+    border: 1px solid #eee */
+  }
+   .layout-component-content section table th{
+     text-align: left;
+     padding: 15px;
+     border-bottom: 1px solid #d8d8d8;
+   }
+  .layout-component-content section table td{
+    border-bottom: 1px solid #d8d8d8;
+    padding:15px
+  }
+
+  .layout-component-content section pre {
+    line-height: 1.8;
+    /* font-family: Menlo,Monaco,Consolas,Courier,monospace; */
+    font-size: 12px;
+    padding: 18px 24px;
+    background-color: #fafafa;
+    border: 1px solid #eaeefb;
+    margin-bottom: 25px;
+    border-radius: 4px;
+    -webkit-font-smoothing: auto;
+  }
 </style>

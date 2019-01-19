@@ -87,7 +87,7 @@
     width: 1140px;
     margin: auto;
     min-height: 100%;
-    box-shadow: 0 2px 8px #f0f1f2;
+    /* box-shadow: 0 2px 8px #f0f1f2; */
 }
 
 /* layout-content left component-nav*/
@@ -99,7 +99,7 @@
     top: 65px;
     bottom: 0;
     box-sizing: border-box;
-    border-right: 1px solid #f1f4f8;
+    /* border-right: 1px solid #f1f4f8; */
     /*  不加这个的话 hover设置scroll会出现抖动 */
     overflow-y: hidden;
     padding-left: 20px
@@ -156,8 +156,8 @@
     margin-top: 15px
 }
 .layout-component-content{
-  
-    padding: 5px 10px 0 250px
+    /* padding: 5px 10px 0 250px  这个会抖动*/
+    margin: 5px 10px 0 250px
 }
 
 
@@ -170,11 +170,12 @@
     top: 0;
     height: 65px;
     z-index: 2;
+    /* border-bottom: 1px solid #f1f4f8; */
 }
 .topnav {
     overflow: hidden;
     background-color: #ffffff;
-    box-shadow: 0 2px 8px #f0f1f2;
+    /* box-shadow: 0 2px 8px #f0f1f2; */
     width: 1140px;
     margin: auto;
    
@@ -232,6 +233,13 @@
         margin-top:10px
     }
     /* layout-header */
+    .topnav-wrapper{
+        position: inherit;
+        width: 100%;
+        height: auto;
+        z-index: 2;
+        /* border-bottom: 1px solid #f1f4f8; */
+    }
     .topnav{
         width: 100%;
     }
@@ -257,6 +265,24 @@
     .topnav input[type=text] {
         width: 90%;
         margin: auto
+    }
+
+    .layout-content{
+        width: 100%;
+        overflow: hidden;
+        padding-top: 0;
+        
+    }
+
+    .layout-component-nav{
+        position: inherit;
+        width: 100%;
+        
+    }
+
+    .layout-component-content{
+        width: 100%;
+        margin: 0
     }
 
 
