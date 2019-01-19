@@ -11,9 +11,11 @@
     "babel-polyfill": "^6.26.0",
     "html-loader": "^0.5.5",
     "markdown-it": "^8.4.2",
+    "markdown-it-anchor": "^5.0.2",
     "markdown-it-container": "^2.0.0",
     "markdown-loader": "^4.0.0",
     "mavon-editor": "^2.6.17",
+    "transliteration": "^2.1.1",
     "vue": "^2.5.21",
     "vue-markdown-loader": "^2.4.1",
     "vue-router": "^3.0.2"

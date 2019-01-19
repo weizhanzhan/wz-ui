@@ -25,7 +25,6 @@ export default {
       },
       methods: {
           changeLang(lang) {
-
               let { path } = this.$route
               path = path.replace(this.lang,lang)
               this.lang = lang

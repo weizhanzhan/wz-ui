@@ -20,7 +20,7 @@ module.exports = {
                         list:[
                             {
                                 path:'/install',
-                                title:'安装'
+                                title:'简介'
                             }
                         ]
                     }

@@ -51,7 +51,6 @@ const initRoute = function(){
     })
     return routes
 }
-console.log(initRoute())
 const router = new VueRouter({
     routes:[
         ...initRoute(),

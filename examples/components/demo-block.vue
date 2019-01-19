@@ -136,4 +136,26 @@
     white-space: nowrap;
     user-select: none;
   }
+
+  .layout-component-content section h2{
+    font-size: 28px;
+    color: #1f2d3d;
+    margin: 0;
+  }
+  .layout-component-content section h3 {
+      font-size: 22px;
+    }
+  .layout-component-content section h2, h3, h4, h5 {
+    font-weight: normal;
+    color: #1f2f3d;
+  }
+  .layout-component-content section a {
+      float: left;
+      margin-left: -20px;
+      opacity: 0;
+      cursor: pointer;
+  }
+  .layout-component-content section a:hover{
+      opacity: 0.4;
+  }
 </style>

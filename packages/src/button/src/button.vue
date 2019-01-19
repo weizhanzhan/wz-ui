@@ -13,7 +13,9 @@
         @click="getFoucs(this)">
         <div class="ripple" :style="[RippleColor]" ref="ripple"> </div>
         <i class="iconfont icon-loading" v-show="loading"></i>
-        <slot></slot>
+        <span>
+            <slot></slot>
+        </span>
     </button>
 </template>
 
@@ -171,14 +173,18 @@
         border-radius: 4px;
         font-size: 16px;
         position: relative;
-        overflow: hidden
+        overflow: hidden;
+      
+    }
+    .wz-button:hover{
+        opacity: 0.8;
     }
     .wz-button+.wz-button{
         margin-left: 10px
     }
     .wz-button i {
         display: inline-block;
-        animation: roate 1s infinite linear;
+        animation: roate 2s infinite linear;
         margin-right: 5px   
     }
     .wz-button img{
@@ -206,18 +212,24 @@
     }
 
     .wz-button-normal {
-        padding: 12px 23px;
+        /* padding: 10px 20px; */
         font-size: 16px;
+        height: 44px;
+        line-height: 39px;
     }
 
     .wz-button-small {
-        padding: 8px 15px;
-        font-size: 16px;
+        /* padding: 8px 15px; */
+        font-size: 15px;
+        height: 35px;
+        line-height: 30px
     }
 
     .wz-button-mini {
-        padding: 6px 10px;
-        font-size: 16px;
+        /* padding: 6px 10px; */
+        font-size: 15px;
+        height: 30px;
+        line-height: 25px
     }
 
     .wz-button--primary {

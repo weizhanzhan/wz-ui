@@ -1,4 +1,13 @@
-const markdownRender = require('markdown-it')()
+const md = require('markdown-it')()
+// const slugify = require('transliteration').slugify;
+const striptags = require('./strip-tags');
+function convert(str) {
+  str = str.replace(/(&#x)(\w{4});/gi, function($0) {
+    return String.fromCharCode(parseInt(encodeURIComponent($0).replace(/(%26%23x)(\w{4})(%3B)/g, '$2'), 16));
+  });
+  return str;
+}
+
 module.exports = {
   //解决打包后空白
   publicPath: './',
@@ -39,29 +48,45 @@ module.exports = {
       .options({
         raw: true,
         use: [
+          
+        //   [
+        //     require('markdown-it-anchor'), {
+        //     level: 2,
+        //     slugify: slugify,
+        //     permalink: true,
+        //     permalinkBefore: true
+        //   }
+        // ],
           [require('markdown-it-container'), 'demo', {
-            validate: function (params) {
-              return params.trim().match(/^demo\s*(.*)$/)
+            validate: function(params) {
+              return params.trim().match(/^demo\s*(.*)$/);
             },
-            render: function (tokens, idx) {
-              console.log(tokens, idx)
+
+            render: function(tokens, idx) {
+              var m = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
               if (tokens[idx].nesting === 1) {
-                // 1.获取第一行的内容使用markdown渲染html作为组件的描述
-                let demoInfo = tokens[idx].info.trim().match(/^demo\s+(.*)$/)
-                let description = (demoInfo && demoInfo.length > 1) ? demoInfo[1] : ''
-                let descriptionHTML = description ? markdownRender.render(description) : ''
-                // 2.获取代码块内的html和js代码
-                let content = tokens[idx + 1].content
-                // 3.使用自定义开发组件【DemoBlock】来包裹内容并且渲染成案例和代码示例
-                return `<demo-block>
-                  <div class="source" slot="source">${content}</div>
-                  ${descriptionHTML}
-                  <div class="highlight" slot="highlight">`
-              } else {
-                return '</div></demo-block>\n'
+                var description = (m && m.length > 1) ? m[1] : '';
+                var content = tokens[idx + 1].content;
+                var html = convert(striptags.strip(content, ['script', 'style'])).replace(/(<[^>]*)=""(?=.*>)/g, '$1');
+                var script = striptags.fetch(content, 'script');
+                var style = striptags.fetch(content, 'style');
+                var jsfiddle = { html: html, script: script, style: style };
+                var descriptionHTML = description
+                  ? md.render(description)
+                  : '';
+
+                jsfiddle = md.utils.escapeHtml(JSON.stringify(jsfiddle));
+
+                return `<demo-block class="demo-box" :jsfiddle="${jsfiddle}">
+                          <div class="source" slot="source">${html}</div>
+                          ${descriptionHTML}
+                          <div class="highlight" slot="highlight">`;
               }
+              return '</div></demo-block>\n';
             }
-          }]
+          }],
+          [require('markdown-it-container'), 'tip'],
+          [require('markdown-it-container'), 'warning']
         ]
       })
   },
@@ -77,5 +102,30 @@ module.exports = {
   //       } 
   //     ] 
   //   })
+  
   // }
+
+  // [require('markdown-it-container'), 'demo', {
+  //   validate: function (params) {
+  //     return params.trim().match(/^demo\s*(.*)$/)
+  //   },
+  //   render: function (tokens, idx) {
+  //     console.log(tokens, idx)
+  //     if (tokens[idx].nesting === 1) {
+  //       // 1.获取第一行的内容使用markdown渲染html作为组件的描述
+  //       let demoInfo = tokens[idx].info.trim().match(/^demo\s+(.*)$/)
+  //       let description = (demoInfo && demoInfo.length > 1) ? demoInfo[1] : ''
+  //       let descriptionHTML = description ? markdownRender.render(description) : ''
+  //       // 2.获取代码块内的html和js代码
+  //       let content = tokens[idx + 1].content
+  //       // 3.使用自定义开发组件【DemoBlock】来包裹内容并且渲染成案例和代码示例
+  //       return `<demo-block>
+  //         <div class="source" slot="source">${content}</div>
+  //         ${descriptionHTML}
+  //         <div class="highlight" slot="highlight">`
+  //     } else {
+  //       return '</div></demo-block>\n'
+  //     }
+  //   }
+  // }]
 }
