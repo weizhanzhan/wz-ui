@@ -9,6 +9,10 @@ module.exports = {
             redirect:'/install',
             title:'layout',
             children:'nav'
+        },
+        blog:{
+            path:'/blog',
+            title:'blog'
         }
     },
     'zh-CN':{

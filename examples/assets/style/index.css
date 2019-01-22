@@ -214,11 +214,20 @@
 }
 .topnav .wz-header-nav li{
     float: left;
-    margin-right: 10px
+    margin-right: 10px;
+    padding: 5px
 }
 .topnav .wz-header-nav i{
     font-size: 20px;
     cursor: pointer;
+}
+.topnav .wz-header-nav span{
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.topnav .wz-header-nav span:hover,i:hover{
+    color: #1890ff
 }
 
 

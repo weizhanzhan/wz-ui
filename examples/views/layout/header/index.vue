@@ -12,6 +12,7 @@
                     <i  class="iconfont icon-en-US" v-else  @click="app.changeLang('zh-CN')"></i>
                 </li>
                 <li> <i  class="iconfont icon-git-1"></i></li>
+                <li > <span >Blog</span></li>
             </ul>
         </div>
     </div>

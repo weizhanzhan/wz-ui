@@ -38,7 +38,7 @@ export default {
 body,html{
   padding: 0;
   margin: 0;
-  height: 100%;
+  /* height: 100%; */
   /* background: #f4f5f5 */
 }
 #app {
