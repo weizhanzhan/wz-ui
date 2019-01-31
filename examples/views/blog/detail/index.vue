@@ -10,18 +10,15 @@
                 </div>
             </div>
             <div class="blog-content">
-                <div class="blog-content-title">
-                    Latest notes
+                <div class="blog-content-title" >
+                    <span class="cursor" @click="$router.back(-1)">
+                        <i class="iconfont icon-back6"></i>
+                        Blog details
+                    </span>             
                 </div>
                 <div class="blog-list">
-                    <div class="list-item" v-for="n in 10" :key="n" @click="app.RouterPush('/blog/'+n)">
-                        <div class="blog-list-title">[ javascript ] 原生实现滚动轮播图</div>
-                        <div class="blog-list-date">2018-08-08 18:16:55</div>
-                    </div>
+                    {{$route.params.id}}
                 </div>
-            </div>
-            <div class="blog-footer">
-                <wz-pagination></wz-pagination>
             </div>
         </div>
     </div>
@@ -29,7 +26,7 @@
 
 <script>
 export default {
-    inject:['app']
+
 }
 </script>
 

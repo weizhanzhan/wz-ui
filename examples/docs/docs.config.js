@@ -13,6 +13,9 @@ module.exports = {
         blog:{
             path:'/blog',
             title:'blog'
+        },
+        detail:{
+            path:'/blog/:id'
         }
     },
     'zh-CN':{

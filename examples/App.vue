@@ -29,7 +29,10 @@ export default {
               path = path.replace(this.lang,lang)
               this.lang = lang
               this.$router.replace(path)
-          }
+          },
+          RouterPush(path){
+              this.$router.push(path)
+          },
       },
 }
 </script>

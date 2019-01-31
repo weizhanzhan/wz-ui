@@ -1,5 +1,6 @@
 export default {
     '_blog':()=>import('../views/blog/layout'),
+    '_detail':()=>import('../views/blog/detail'),
     '_home':()=>import('../views/home/index.vue'),
     '_layout':()=>import('../views/layout/index.vue'),
     'install.en-US':()=>import('../views/demo/install/index.md'),
