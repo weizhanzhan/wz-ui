@@ -3,7 +3,8 @@
         class="wz-button" 
         :class="[
             size?'wz-button-'+size:'',
-            type?'wz-button--'+type:'', 
+            type?'wz-button--'+type:'',
+            active?'wz-button-active':''
         ]"
         :style="[
             disabled?disabledStyle:'',
@@ -89,6 +90,12 @@
                 type: String,
                 default () {
                     return 'default'
+                }
+            },
+            active:{
+                type:Boolean,
+                default(){
+                    return false
                 }
             }
         },
@@ -191,6 +198,11 @@
         width: 16px;
         animation: roate 2s linear infinite;
 
+    }
+
+    .wz-button-active{
+        background: #1890ff;
+        color: #ffffff
     }
 
     @keyframes roate {
