@@ -1,34 +1,8 @@
 <template>
-    <div class="wz-pagination">
-        <!-- <div class="pagination-block">
-            <i class="iconfont icon-paging-left"></i>
-        </div>
-        <div class="pagination-block">
-            1
-        </div>
-        <div class="pagination-block">
-            2
-        </div>
-        <div class="pagination-block">
-            3
-        </div>
-        <div class="pagination-block">
-            ...
-        </div>
-        <div class="pagination-block">
-             <i class="iconfont icon-paging-right"></i>
-             
-        </div> -->
-        <wz-button size="mini"><span class="iconfont icon-paging-left"></span></wz-button>
-        <wz-button size="mini" v-for="n in 6" :key="n" @click="pages=n"  :active="pages==n">{{n}}</wz-button>
-        <!-- <wz-button size="mini" active>1</wz-button>
-        <wz-button size="mini">2</wz-button>
-        <wz-button size="mini">3</wz-button>
-        <wz-button size="mini">4</wz-button>
-        <wz-button size="mini">5</wz-button>
-        <wz-button size="mini">···</wz-button>
-        <wz-button size="mini">90</wz-button> -->
-        <wz-button size="mini"><span class="iconfont icon-paging-right"></span></wz-button>
+    <div class="wz-pagination"> 
+        <wz-button size="mini" @click="changePage(-1)"><span class="iconfont icon-paging-left"></span></wz-button>
+        <wz-button size="mini" v-for="n in total" :key="n" @click="currentPages=n"  :active="currentPages==n">{{n}}</wz-button>
+        <wz-button size="mini" @click="changePage(1)"><span class="iconfont icon-paging-right"></span></wz-button>
     </div>
 </template>
 
@@ -37,9 +11,19 @@ export default {
     name:'wzPagination',
     data(){
         return{
-            pages:1
+            currentPages:1,
+            total:6
         }
     },
+    methods:{
+        changePage(num){
+            this.currentPages+=num
+            if(this.currentPages<1)
+                this.currentPages = 1
+            if(this.currentPages>this.total)
+                this.currentPages = this.total    
+        }
+    }
 }
 </script>
 
@@ -61,8 +45,5 @@ export default {
         height: 28px;
     line-height: 28px;
 }
-.pagination-block:hover{
-    /* background: #1890ff;
-    color: #ffffff; */
-}
+
 </style>

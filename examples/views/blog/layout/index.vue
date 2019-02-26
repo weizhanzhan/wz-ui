@@ -28,8 +28,12 @@
 </template>
 
 <script>
+import { GetBlogs } from '../../../apis'
 export default {
-    inject:['app']
+    inject:['app'],
+    mounted(){
+        GetBlogs(1,4)
+    }
 }
 </script>
 
