@@ -1,18 +1,42 @@
 <template>
     <div class="wz-pagination"> 
         <wz-button size="mini" @click="changePage(-1)"><span class="iconfont icon-paging-left"></span></wz-button>
-        <wz-button size="mini" v-for="n in total" :key="n" @click="currentPages=n"  :active="currentPages==n">{{n}}</wz-button>
+        <wz-button size="mini" v-for="n in totalNum" :key="n" @click="currentPages=n"  :active="currentPages==n">{{n}}</wz-button>
         <wz-button size="mini" @click="changePage(1)"><span class="iconfont icon-paging-right"></span></wz-button>
     </div>
 </template>
 
 <script>
 export default {
+    props:{
+        total:{
+            type:Number,
+            default:1
+        },
+        currentPage:{
+            type:Number,
+            default:1
+        },
+        pageSize:{
+            type:Number,
+            default:1
+        }
+    },
     name:'wzPagination',
     data(){
         return{
             currentPages:1,
-            total:6
+           // total:6
+        }
+    },
+    computed:{
+        totalNum(){
+            return Math.round(this.total/this.pageSize)
+        }
+    },
+    watch:{
+        currentPages(){
+            this.$emit('changePage',this.currentPages)
         }
     },
     methods:{
@@ -20,8 +44,8 @@ export default {
             this.currentPages+=num
             if(this.currentPages<1)
                 this.currentPages = 1
-            if(this.currentPages>this.total)
-                this.currentPages = this.total    
+            if(this.currentPages>this.totalNum)
+                this.currentPages = this.totalNum    
         }
     }
 }

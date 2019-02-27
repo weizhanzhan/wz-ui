@@ -14,14 +14,14 @@
                     Latest notes
                 </div>
                 <div class="blog-list">
-                    <div class="list-item" v-for="n in 10" :key="n" @click="app.RouterPush('/blog/'+n)">
-                        <div class="blog-list-title">[ javascript ] 原生实现滚动轮播图</div>
+                    <div class="list-item" v-for="(blog,index) in blogs" :key="index" @click="app.RouterPush('/blog/'+blog._id)">
+                        <div class="blog-list-title"><span :style="[classifyStyle(blog.classify)]">{{blog.classify}}</span> {{blog.title}}</div>
                         <div class="blog-list-date">2018-08-08 18:16:55</div>
                     </div>
                 </div>
             </div>
             <div class="blog-footer">
-                <wz-pagination></wz-pagination>
+                <wz-pagination :total="totalPage" :page-size="pageSize" :current-page="currentPage" @changePage="changePage"></wz-pagination>
             </div>
         </div>
     </div>
@@ -31,8 +31,48 @@
 import { GetBlogs } from '../../../apis'
 export default {
     inject:['app'],
+    data(){
+        return {
+            pageSize:15,
+            currentPage:1,
+            totalPage:1,
+            blogs:[],
+        }
+    },
+    methods:{
+        getBlogs(currentPage,pageSize){
+            GetBlogs(currentPage,pageSize).then(res=>{
+                console.log(res);
+                this.blogs = res.data.blogs;
+                this.totalPage = res.data.count
+            })
+        },
+        changePage(currentpage){
+            this.getBlogs(currentpage,this.pageSize)
+        },
+        classifyStyle(classify){
+            console.log(classify)
+            var style = {
+                "background":""
+            }
+            switch(classify){
+                case 'Html5':
+                    style.background="#1890ff";
+                    break;
+                case 'Javascript':
+                    style.background="#faad14";
+                    break;
+                case 'Vue.js':
+                    style.background="#52c41a";
+                    break;
+                default:
+                    style.background = "#fa541c"
+            }
+            return style
+        }
+    },
     mounted(){
-        GetBlogs(1,4)
+        this.getBlogs(this.currentPage,this.pageSize)
     }
 }
 </script>
