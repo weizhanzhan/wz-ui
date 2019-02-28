@@ -8,6 +8,12 @@ import "highlight.js/styles/color-brewer.css";
 import VueComponent from './components'
 Vue.use(VueComponent)
 
+
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
+// use
+Vue.use(mavonEditor)
+
 import './assets/icon/iconfont.css'
 import './assets/style/index.css'
 // import './assets/style/demo.css'

@@ -6,7 +6,8 @@
                     <img src="../../../assets/logo.png" @click="app.RouterPush('/')" alt="">
                 </div>
                 <div class="blog-input">
-                    <input placeholder="请输入要搜索标题或者标签信息" /><wz-button size="mini" type="primary" ripple>搜索</wz-button>
+                    <input placeholder="请输入要搜索标题或者标签信息" v-model="searchBlog" />
+                    <!-- <wz-button size="mini" type="primary" ripple>搜索</wz-button> -->
                 </div>
             </div>
             <div class="blog-content">
@@ -14,7 +15,7 @@
                     Latest notes
                 </div>
                 <div class="blog-list">
-                    <div class="list-item" v-for="(blog,index) in blogs" :key="index" @click="app.RouterPush('/blog/'+blog._id)">
+                    <div class="list-item" v-for="(blog,index) in filterBlog" :key="index" @click="app.RouterPush('/blog/'+blog._id)">
                         <div class="blog-list-title"><span :style="[classifyStyle(blog.classify)]">{{blog.classify}}</span> {{blog.title}}</div>
                         <div class="blog-list-date">2018-08-08 18:16:55</div>
                     </div>
@@ -37,6 +38,7 @@ export default {
             currentPage:1,
             totalPage:1,
             blogs:[],
+            searchBlog:''
         }
     },
     methods:{
@@ -69,6 +71,13 @@ export default {
                     style.background = "#fa541c"
             }
             return style
+        }
+    },
+    computed:{
+        filterBlog(){
+            return this.blogs.filter(blog =>{
+                return blog.title.match(this.searchBlog)
+            })
         }
     },
     mounted(){

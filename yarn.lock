@@ -4996,8 +4996,8 @@ marked@^0.5.0:
 
 mavon-editor@^2.6.17:
   version "2.6.17"
-  resolved "http://registry.npm.taobao.org/mavon-editor/download/mavon-editor-2.6.17.tgz#86fb4f5a88553c16d0d9f173ed69ebcfa0f1ae7e"
-  integrity sha1-hvtPWohVPBbQ2fFz7Wnrz6Dxrn4=
+  resolved "https://registry.yarnpkg.com/mavon-editor/-/mavon-editor-2.6.17.tgz#86fb4f5a88553c16d0d9f173ed69ebcfa0f1ae7e"
+  integrity sha512-QKf5UtraxOjL3E9s5log/UCoaHKafC1DyiSbHgXWtRn00723SwDHbnT+aFFRaoD/O53NdUfsBDBVfwZrXl7vEw==
   dependencies:
     highlight.js "^9.11.0"
     highlight.js-async-webpack "^1.0.4"
