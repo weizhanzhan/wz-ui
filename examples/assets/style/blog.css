@@ -76,21 +76,19 @@
     cursor: pointer;
 }
 .blog-list-title{
-    flex: 0 0 600px;
-    font-size: 14px
+    flex: 0 0 560px;
+    font-size: 14px;
+    line-height: 20px;
+    padding-left: 10px
 }
-.blog-list-title span{
-    background: chartreuse;
-    padding: 4px;
-    box-sizing: border-box;
-    font-size: 12px;
-    border-radius: 5px;
-    color: #ffffff
-}
+
 .blog-list-date{
-    font-size: 14px
+    font-size: 13px;
+    color:#8c8c8c;
+    line-height: 20px
 }
 .blog-footer{
     text-align: center;
     margin-top: 30px
 }
+

@@ -16,7 +16,10 @@
                 </div>
                 <div class="blog-list">
                     <div class="list-item" v-for="(blog,index) in filterBlog" :key="index" @click="app.RouterPush('/blog/'+blog._id)">
-                        <div class="blog-list-title"><span :style="[classifyStyle(blog.classify)]">{{blog.classify}}</span> {{blog.title}}</div>
+                        <a href=""><img :src="_wz.getTypeUrl(blog.classify)" width="20" alt=""></a>
+                        <div class="blog-list-title" >
+                            {{blog.title}}
+                        </div>
                         <div class="blog-list-date">2018-08-08 18:16:55</div>
                     </div>
                 </div>
@@ -51,26 +54,6 @@ export default {
         },
         changePage(currentpage){
             this.getBlogs(currentpage,this.pageSize)
-        },
-        classifyStyle(classify){
-            console.log(classify)
-            var style = {
-                "background":""
-            }
-            switch(classify){
-                case 'Html5':
-                    style.background="#1890ff";
-                    break;
-                case 'Javascript':
-                    style.background="#faad14";
-                    break;
-                case 'Vue.js':
-                    style.background="#52c41a";
-                    break;
-                default:
-                    style.background = "#fa541c"
-            }
-            return style
         }
     },
     computed:{
