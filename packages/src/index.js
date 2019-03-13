@@ -24,6 +24,7 @@ const install = function (Vue){
     //遍历注册全局组件
     components.map(component => Vue.component(component.name,component))
 
+    //注册全局钩子
     Vue.use(Vloading)
 }
 
