@@ -2,6 +2,7 @@ module.exports = {
     'base':{
         home:{
             path:'/',
+            redirect:'/zh-CN/install',
             title:'初始页'
         },
         layout:{
