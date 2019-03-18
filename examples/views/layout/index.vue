@@ -7,7 +7,6 @@
                     <component-nav></component-nav>
                 </div>
                 <div class="layout-component-content">
-
                     <router-view></router-view>
                 </div>
             </div>

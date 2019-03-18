@@ -1,8 +1,4 @@
-<style>
-    /* .wz-demo button{
-        margin: 0 10px !important
-    } */
-</style>
+
 ## Button 按钮
 常用的操作按钮。
 

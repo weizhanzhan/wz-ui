@@ -29,6 +29,8 @@ yarn run lint
 ```
 mavon-editor markdown展示组件
 markdown-loader html-loader  markdown webpack rules
+
+屏幕抖动是因为滚动条
 ```
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
