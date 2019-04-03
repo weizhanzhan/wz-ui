@@ -10,7 +10,7 @@ function convert(str) {
 
 module.exports = {
   //解决打包后空白
-  publicPath: './',
+  publicPath: '/',
   lintOnSave:false,//关闭eslint检测
    // 修改 src 为 examples
   pages: {

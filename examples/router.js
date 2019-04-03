@@ -58,6 +58,7 @@ const router = new VueRouter({
             path:'*',
             redirect:'/'
         }
-    ]
+    ],
+    mode:'history'
 })
 export default router
