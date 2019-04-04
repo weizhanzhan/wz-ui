@@ -19,6 +19,17 @@ class Wz {
         }
         return url
     }
+    formatDateTime(datetime){
+        let date = new Date(datetime),year,month,day,hour,minutes ,second;
+
+        year = date.getFullYear();
+        month = date.getMonth()+1;
+        day = date.getDate();
+        hour = date.getHours();
+        minutes  = date.getMinutes();
+        second = date.getSeconds()
+        return `${year}-${month}${day} ${hour}:${minutes }:${second}`
+    }
 }
 export {
     Wz
