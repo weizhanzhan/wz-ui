@@ -2,14 +2,15 @@
 import colorPicker from './color-picker'
 import Button from './button'
 import Pagination from './pagination'
-
+import Table from './table';
 import Vloading from './v-loading'
 
 // 存储组件列表
 const components = [
     colorPicker,
     Button,
-    Pagination
+    Pagination,
+    Table
 ]
 
 
@@ -39,7 +40,8 @@ export { //按需导入
     install,
     colorPicker,
     Button,
-    Pagination
+    Pagination,
+    Table
 }
 export default { //全部导入
     install

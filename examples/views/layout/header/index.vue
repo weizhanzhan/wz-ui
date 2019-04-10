@@ -1,9 +1,9 @@
 <template>
     <div class="topnav-wrapper">
         <div class="topnav">
-            <a  href="#home">
+            <router-link to="/">
                 <img src="../../../assets/logo.png" alt="">
-            </a>
+            </router-link>
             
             <ul class="wz-header-nav">
                 <li> <input type="text" placeholder="Search.."></li>

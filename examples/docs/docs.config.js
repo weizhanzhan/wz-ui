@@ -47,6 +47,10 @@ module.exports = {
                             {
                                 path:'/icon',
                                 title:'Icon'
+                            },
+                            {
+                                path:'/table',
+                                title:'Table'
                             }
                         ]
                     }
@@ -82,6 +86,10 @@ module.exports = {
                             {
                                 path:'/icon',
                                 title:'Icon'
+                            },
+                            {
+                                path:'/table',
+                                title:'Table'
                             }
                         ]
                     }

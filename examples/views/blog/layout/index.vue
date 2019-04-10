@@ -4,9 +4,9 @@
             <div class="blog-topnav-wrapper">
                 <header :class="['main-header',scroll?'no-header':'']" >
                      <div class="blog-topnav" style="width:100%">
-                        <a  href="#home">
+                        <router-link  to="/">
                             <img src="../../../assets/logo.png" alt="">
-                        </a>                    
+                        </router-link>                    
                         <ul class="wz-header-nav">
                             <li> <input type="text" placeholder="Search.."></li>
                         

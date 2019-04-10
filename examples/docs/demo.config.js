@@ -9,5 +9,8 @@ export default {
     'button.zh-CN':()=>import('../views/demo/button/index.md'),
     'icon.en-US':()=>import('../views/demo/wz-icon/index.md'),
     'icon.zh-CN':()=>import('../views/demo/wz-icon/index.md'),
+    'table.en-US':()=>import('../views/demo/table/index.md'),
+    'table.zh-CN':()=>import('../views/demo/table/index.md')
+
 
 }
