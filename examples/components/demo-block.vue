@@ -31,7 +31,7 @@
     }
   }
 </script>
-<style>
+<style scoped>
   .demo-block {
     border: 1px solid #ebedf0;
     border-radius: 2px;
