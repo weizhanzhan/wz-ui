@@ -2,19 +2,29 @@
     <table>
         <thead>
             <tr>
-                <th v-for="col in columns">{{ col.title }}</th>
+                <th v-for="col in columns" :key="col.title">{{ col.title }}</th>
             </tr>
         </thead>
         <tbody>
-            <tr v-for="row in data">
-                <td v-for="col in columns">{{ row[col.key] }}</td>
+            <tr v-for="(row,rowIndex) in data" :key="rowIndex">
+                <td v-for="col in columns" :key="row[col.key]">
+                   
+                    <template v-if="'render' in col">
+                        <Render :row="row" :column="col" :index="rowIndex" :render="col.render"></Render>
+                    </template>
+                    <template v-else>
+                        {{ row[col.key] }}
+                    </template>
+                </td>
             </tr>
         </tbody>
     </table>
 </template>
 <script>
+    import Render from './render.js';
     export default {
         name:'WzTable',
+        components: { Render },
         props: {
             columns: {
                 type: Array,
