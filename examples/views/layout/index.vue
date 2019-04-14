@@ -28,6 +28,16 @@
 </script>
 
 <style>
-
+ .layout-component-content section pre {
+    line-height: 1.8;
+    /* font-family: Menlo,Monaco,Consolas,Courier,monospace; */
+    font-size: 12px;
+    padding: 18px 24px;
+    background-color: #fafafa;
+    border: 1px solid #eaeefb;
+    margin-bottom: 25px;
+    border-radius: 4px;
+    -webkit-font-smoothing: auto;
+  }
 
 </style>

@@ -1,5 +1,5 @@
 const md = require('markdown-it')()
-// const slugify = require('transliteration').slugify;
+//const slugify = require('transliteration').slugify;
 const striptags = require('./strip-tags');
 function convert(str) {
   str = str.replace(/(&#x)(\w{4});/gi, function($0) {
@@ -48,15 +48,15 @@ module.exports = {
       .options({
         raw: true,
         use: [
-          
-        //   [
-        //     require('markdown-it-anchor'), {
-        //     level: 2,
-        //     slugify: slugify,
-        //     permalink: true,
-        //     permalinkBefore: true
-        //   }
-        // ],
+          // anchor 是用来放到每一个标题前的导航作用 我不需要 
+          // [
+          //   require('markdown-it-anchor'), {
+          //   level: 2,
+          //   slugify: slugify,
+          //   permalink: true,
+          //   permalinkBefore: true
+          // }
+        ],
           [require('markdown-it-container'), 'demo', {
             validate: function(params) {
               return params.trim().match(/^demo\s*(.*)$/);

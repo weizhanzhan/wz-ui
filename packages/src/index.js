@@ -3,6 +3,7 @@ import colorPicker from './color-picker'
 import Button from './button'
 import Pagination from './pagination'
 import Table from './table';
+import TableEditCell from './table/edit'
 import Vloading from './v-loading'
 
 // 存储组件列表
@@ -10,7 +11,8 @@ const components = [
     colorPicker,
     Button,
     Pagination,
-    Table
+    Table,
+    TableEditCell
 ]
 
 
