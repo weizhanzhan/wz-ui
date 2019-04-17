@@ -53,28 +53,34 @@
                     },
                     {
                         title: '操作',
+                        key:'action',
+                        scopedSlots: { customRender: 'action' },
                       
                     }
                 ],
                 data: [{
+                        key:'0',
                         name: '王小明',
                         age: 18,
                         birthday: '919526400000',
                         address: '北京市朝阳区芍药居'
                     },
                     {
+                        key:'1',
                         name: '张小刚',
                         age: 25,
                         birthday: '696096000000',
                         address: '北京市海淀区西二旗'
                     },
                     {
+                        key:'2',
                         name: '李小红',
                         age: 30,
                         birthday: '563472000000',
                         address: '上海市浦东新区世纪大道'
                     },
                     {
+                        key:'3',
                         name: '周小伟',
                         age: 26,
                         birthday: '687024000000',
@@ -84,8 +90,17 @@
             }
         },
         methods:{
-            onCellChange(row,col,index){
-                console.log(row,col,index)
+            onCellChange(key,type,value){
+                const dataSource = [...this.data]
+                const target = dataSource.find(item => item.key === key)
+                if (target) {
+                    target[type] = value
+                    this.data = dataSource
+                }
+            },
+            onDelete(key){
+                const dataSource = [...this.data]
+                 this.data = dataSource.filter(item => item.key !== key)
             }
         }
     }
@@ -178,10 +193,12 @@
 <template>
     <div>
         <wz-table :columns="columns2" :data="data"> 
-            <template slot="name" slot-scope="{text}">
-                <table-edit-cell :text="text" @on-cell-change="onCellChange" />
+            <template slot="name" slot-scope="{text,record}">
+                <table-edit-cell :text="text" @on-cell-change="onCellChange(record.key,record.type,$event)" />
             </template>
-            
+            <template slot="action" slot-scope="{text,record}">           
+                <a href="javascript:;" @click="onDelete(record.key)">Delete</a>
+            </template>
         </wz-table>
     </div>
 </template>
@@ -209,6 +226,8 @@
                     },
                     {
                         title: '操作',
+                        key:'action',
+                        scopedSlots: { customRender: 'action' },
                       
                     }
                 ],
@@ -240,8 +259,13 @@
             }
         },
          methods:{
-            onCellChange(row,col,index){
-                console.log(row,col,index)
+            onCellChange(key,type,value){
+                const dataSource = [...this.data]
+                const target = dataSource.find(item => item.key === key)
+                if (target) {
+                    target[type] = value
+                    this.data = dataSource
+                }
             }
         }
     }

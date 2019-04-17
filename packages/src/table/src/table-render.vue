@@ -9,7 +9,7 @@
             <tr v-for="(row,rowIndex) in data" :key="rowIndex">
                 <td v-for="col in columns" :key="row[col.key]">
                     <template v-if="'scopedSlots' in col">
-                         <slot name="name" :text="row[col.key]" :row="row" :column="col" :index="rowIndex"></slot>
+                         <slot :name="col.scopedSlots.customRender" :text="row[col.key]" :record="{key:row.key,type:col.key,index:rowIndex}" :column="col" :index="rowIndex"></slot>
                     </template>
                     <template v-else-if="'render' in col">
                         <Render :row="row" :column="col" :index="rowIndex" :render="col.render"></Render>

@@ -56,7 +56,7 @@ module.exports = {
           //   permalink: true,
           //   permalinkBefore: true
           // }
-        ],
+        //],
           [require('markdown-it-container'), 'demo', {
             validate: function(params) {
               return params.trim().match(/^demo\s*(.*)$/);

@@ -2,7 +2,7 @@
     <div @mouseenter="mouseenter" @mouseleave="mouseleave" class="edit-cell">
         <template>
             <span v-if="isRead">{{text}}</span>
-            <input v-else type="text" :value="text">
+            <input v-else type="text" :value="text" @input="handleInputChange($event.target.value)">
         </template>
 
         <i v-if="tigger" :class="['iconfont',isRead?'icon-edit':'icon-yes']" @click="changeRead"></i>
@@ -25,7 +25,8 @@ export default {
             timerEnter:null,
             timerLeave:null,
             tigger:false,
-            isRead:true
+            isRead:true,
+            value:''
         }
     },
     methods:{
@@ -43,11 +44,14 @@ export default {
                 this.tigger = false
             },200)
         },
+        handleInputChange(val){
+            this.value = val
+        },
         changeRead(){
             // read为true 展示 编辑图标
             this.isRead = !this.isRead
             if(this.isRead){
-                this.$emit('on-cell-change',this.row,this.column,this.index)
+                this.$emit('on-cell-change',this.value)
             }
         }
         
