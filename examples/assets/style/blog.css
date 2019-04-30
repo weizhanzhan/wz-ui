@@ -28,22 +28,18 @@
    margin: 0 auto;
    width: 100%;
    max-width: 960px;
+
+   display: flex
 }
 
 
 
 /* Style the links inside the navigation bar */
 .blog-topnav-wrapper{
-    /* position: fixed;
-    width: 100%;
-    left: 0;
-    top: 0;
-    height: 65px;
-    z-index: 2; */
+
     position: relative;
     height: 5rem;
     z-index: 1501;
-    /* border-bottom: 1px solid #f1f4f8; */
 }
 .main-header{
     position: fixed;
@@ -64,14 +60,6 @@
 .blog-topnav {
     max-width: 960px;
     margin: auto;
-    /* overflow: hidden;
-    background-color: #ffffff; */
-    /* box-shadow: 0 2px 8px #f0f1f2; */
-    /* width: 1140px;
-    margin: auto; */
-
-   
-   
 }
 .blog-topnav a {
     float: left;
@@ -173,13 +161,16 @@
 }
 
 .blog-list{
-  
-    border-radius: 2px;
+    flex: 1 1 auto;
     width: 700px;
-    background: red
+
 }
 .blog-list-container{
-    background: #ffffff
+    background: #ffffff;
+    min-height: 700px
+}
+.blog-comment-container{
+    background: #ffffff;
 }
 .blog-list-container .list-header{
     font-size: 15px;
@@ -254,7 +245,6 @@
     width: 5rem;
     height: 5rem;
     margin-left: 2rem;
-    /* background-color: #000; */
     border-radius: 2px;
 }
 .list-item .blog-box .img-box img{
@@ -263,24 +253,19 @@
 }
 
 .blog-aside{
-    position: absolute;
-    top: 0;
-    right: 0;
+    flex: 0 0 auto;
     width: 240px;
-    /* height: 300px; */
-    
-
+    margin-left: 20px
+}
+.aside-list{
+    position: fixed;
+    top: 80px;
+    transition: all 0.4s
 }
 .aside-item{
+   
     background: #ffffff;
     margin-bottom: 30px
-}
-
-.list-comment{
-
-}
-.comment-list{
-   
 }
 .comment-item{
     display: flex
@@ -291,4 +276,67 @@
 .comment-item .item-info{
     margin-left: .833rem;
     flex: 1 1 auto;
+}
+
+.comment-title{
+    text-align: center;
+    color: #8a9aa9;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 20px 
+}
+.comment-form{
+    display: flex;
+    padding:10px 5px;
+    width: 90%;
+    margin: 0 auto;
+    background: #fafbfc
+}
+.form-avatar{
+    flex: 0 0 60px;
+    width: 60px;
+}
+.avatar-box{
+    margin: auto;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background:url('https://user-gold-cdn.xitu.io/2018/12/24/167ddbb478b0a47f?imageView2/1/w/180/h/180/q/85/format/webp/interlace/1');
+    background-size: 100% 100%
+}
+.form-input{
+    flex: 1;
+}
+.form-input input{
+    width: 90%;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #f1f1f1;
+    border-radius: 3px;
+    padding: 0 10px;
+    outline:none
+}
+.comment-list{
+    margin: 10px 40px 0 80px
+}
+.item-info{
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #f1f1f1;
+}
+.item-info-name{
+    color: #333;
+    display: inline;
+    font-size: 14px;
+    line-height: 1.2
+}
+.item-info-name a{
+    font-weight: bold;
+}
+.item-info-text{
+    color: #505050;
+    font-size: 14px;
+}
+.comment-item:last-child .item-info{
+    border-bottom:none
 }

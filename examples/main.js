@@ -21,7 +21,6 @@ import './assets/style/index.css'
 
 //全部导入组件库 
 import wzUI from '../packages/src/index'
-console.log(wzUI)
 Vue.use(wzUI)
 //按需加载
 // import { colorPicker } from '../packages/index'

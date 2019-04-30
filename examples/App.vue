@@ -43,6 +43,7 @@ body,html{
   margin: 0;
   /* height: 100%; */
   /* background: #f4f5f5 */
+  font-family: 'Poppins', sans-serif;
 }
 #app {
   color: #2c3e50;
