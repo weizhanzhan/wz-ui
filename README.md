@@ -1,5 +1,5 @@
 # wz-ui
-<a href="blog.zhanwei.xyz">预览地址</a>
+<a href="http://blog.zhanwei.xyz/blog">预览地址</a>
 ## Project setup
 ```
 yarn install
