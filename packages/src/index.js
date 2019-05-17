@@ -4,6 +4,7 @@ import Button from './button'
 import Pagination from './pagination'
 import Table from './table';
 import TableEditCell from './table/edit'
+import Tabs from './tabs/index.js'
 import Vloading from './v-loading'
 
 // 存储组件列表
@@ -12,7 +13,9 @@ const components = [
     Button,
     Pagination,
     Table,
-    TableEditCell
+    TableEditCell,
+    Tabs
+
 ]
 
 
@@ -20,7 +23,7 @@ const components = [
 
 const install = function (Vue){
     
-    console.log('Vloading',Vloading)
+   
     //判断是否安装
     if(install.installed) return
     
@@ -43,7 +46,8 @@ export { //按需导入
     colorPicker,
     Button,
     Pagination,
-    Table
+    Table,
+    Tabs
 }
 export default { //全部导入
     install

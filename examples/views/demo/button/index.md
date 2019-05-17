@@ -7,14 +7,12 @@
 
 ```html
 <template>
-    <div>
-        <wz-button>普通按钮</wz-button>
-        <wz-button type="primary" >主要按钮</wz-button>
-        <wz-button type="success">成功按钮</wz-button>
-        <wz-button type="warning">警告按钮</wz-button>
-        <wz-button type="danger">危险按钮</wz-button>
-        <wz-button type="text">TEXT</wz-button>
-    </div>
+    <wz-button>普通按钮</wz-button>
+    <wz-button type="primary" >主要按钮</wz-button>
+    <wz-button type="success">成功按钮</wz-button>
+    <wz-button type="warning">警告按钮</wz-button>
+    <wz-button type="danger">危险按钮</wz-button>
+    <wz-button type="text">TEXT</wz-button>
 </template>
 ``` 
 :::
@@ -26,11 +24,11 @@
 :::demo 要设置为 loading 状态，只要设置`loading`属性为`true`即可。
 
 ```html
-<div>
+<template>
     <wz-button :loading="true">默认按钮</wz-button>
     <wz-button :loading="true" type="primary" >主要按钮</wz-button>
     <wz-button :loading="true" type="success">成功按钮</wz-button>
-</div>
+</template>
 ```
 :::
 
@@ -42,11 +40,11 @@ Button 组件提供除了默认值以外的三种尺寸，可以在不同场景�
 :::demo 额外的尺寸：`small`、`mini`，通过设置`size`属性来配置它们。
 
 ```html
-<div>
-  <wz-button>默认按钮</wz-button>
-  <wz-button size="small">小型按钮</wz-button>
-  <wz-button size="mini">超小按钮</wz-button>
-</div>
+<template>
+  <wz-button :loading="true">默认按钮</wz-button>
+  <wz-button size="small" :loading="true">小型按钮</wz-button>
+  <wz-button size="mini" :loading="true">超小按钮</wz-button>
+</template>
 ```
 :::
 
@@ -57,12 +55,12 @@ Button 组件提供material的btn点击效果
 :::demo 通过设置`ripple`属性来配置它们。
 
 ```html
-<div>
+<template>
     <wz-button type="primary" ripple >主要按钮</wz-button>
     <wz-button type="success" ripple>成功按钮</wz-button>
     <wz-button type="warning" ripple>警告按钮</wz-button>
     <wz-button type="danger" ripple>危险按钮</wz-button>
-</div>
+</template>
 ```
 :::
 

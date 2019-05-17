@@ -13,7 +13,7 @@
         ref="rippleButton" 
         @click="getFoucs(this)">
         <div class="ripple" :style="[RippleColor]" ref="ripple"> </div>
-        <i class="iconfont icon-loading" v-show="loading"></i>
+        <i class="iconfont icon-loading" v-if="loading"></i>
         <span>
             <slot></slot>
         </span>
@@ -136,14 +136,7 @@
 </script>
 
 <style scoped>
-    .testl{
-        width: 100px;
-        height: 10px;
-        display: inline-block;
-        position: absolute;
-        left: 10px;
-        top:16px
-    }
+
     .touch-scale {
         animation: ripple 0.6s linear
     }
@@ -170,7 +163,9 @@
         white-space: nowrap;
         cursor: pointer;
         background: #fff;
-        border: 1px solid #dcdfe6;
+         border: 1px solid #dcdfe6;
+        /* border: 1px solid #dcdfe6; */
+        /* border: none; */
         color: #606266;
         text-align: center;
         box-sizing: border-box;
@@ -192,7 +187,8 @@
     .wz-button i {
         display: inline-block;
         animation: roate 2s infinite linear;
-        margin-right: 5px   
+        margin-right: 5px  ;
+        font-size: 14px
     }
     .wz-button img{
         width: 16px;
@@ -206,13 +202,6 @@
     }
 
     @keyframes roate {
-        /* 0% {
-            transform: rotate(180deg)
-        }
-
-        100% {
-            transform: rotate(360deg)
-        } */
 
         0% {
             transform: rotateZ(0deg);
@@ -220,55 +209,63 @@
         100% {
             transform: rotateZ(360deg);
         }
-
     }
 
     .wz-button-normal {
         /* padding: 10px 20px; */
-        font-size: 16px;
-        height: 44px;
-        line-height: 39px;
+        font-size: 14px;
+        height: 34px;
+        line-height: 2;
     }
 
     .wz-button-small {
         /* padding: 8px 15px; */
-        font-size: 15px;
-        height: 35px;
-        line-height: 30px
+        font-size: 12px;
+        height: 30px;
+    }
+    .wz-button-small i {
+        font-size: 13px
     }
 
     .wz-button-mini {
         /* padding: 6px 10px; */
-        font-size: 15px;
-        height: 30px;
-        line-height: 25px
+        font-size: 10px;
+        height: 25px;
+        line-height: 1
+    }
+    .wz-button-mini i{
+        font-size: 12px
     }
 
     .wz-button--primary {
         background-color: #1890ff;
-        border: 1px solid #1890ff;
+        /* border: 1px solid #1890ff; */
         color: #fff;
+        border:none
       
     }
 
     .wz-button--success {
         background-color: #a0d911;
-        border: 1px solid #a0d911;
+        /* border: 1px solid #a0d911; */
         color: #fff;
+        border:none
       
     }
 
     .wz-button--warning {
         background-color: #fa8c16;
-        border: 1px solid #fa8c16;
+        /* border: 1px solid #fa8c16; */
         color: #fff;
+        border:none
      
     }
 
     .wz-button--danger {
         background-color: #f5222d;
-        border: 1px solid #f5222d;
+        /* border: 1px solid #f5222d; */
         color: #fff;
+        border:none
       
     }
 

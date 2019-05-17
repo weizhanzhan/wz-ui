@@ -96,7 +96,7 @@
     width: 240px;
     background: #ffffff;
     position: fixed;
-    top: 65px;
+    top: 70px;
     bottom: 0;
     box-sizing: border-box;
     /* border-right: 1px solid #f1f4f8; */
@@ -170,6 +170,8 @@
     top: 0;
     height: 65px;
     z-index: 2;
+    box-shadow: 0 2px 8px #f0f1f2;
+    overflow: hidden;
     /* border-bottom: 1px solid #f1f4f8; */
 }
 .topnav {
@@ -228,7 +230,7 @@
 }
 
 .topnav .wz-header-nav span:hover,i:hover{
-    color: #1890ff
+    color: #1890ff;
 }
 
 

@@ -1,5 +1,7 @@
 # wz-ui
 <a href="http://blog.zhanwei.xyz/blog">预览地址</a>
+
+Error vue.runtime.esm.js?2b0e:113 Uncaught TypeError: Cannot read property 'toLowerCase' of undefined 一般是因为组件没写name
 ## Project setup
 ```
 yarn install

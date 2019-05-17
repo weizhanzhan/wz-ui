@@ -38,6 +38,8 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+
 body,html{
   padding: 0;
   margin: 0;

@@ -2,7 +2,7 @@
     <div class="topnav-wrapper">
         <div class="topnav">
             <router-link to="/">
-                <img src="../../../assets/logo.png" alt="">
+                <!-- <img src="../../../assets/logo.png" alt=""> -->
             </router-link>
             
             <ul class="wz-header-nav">

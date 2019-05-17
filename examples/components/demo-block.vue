@@ -18,7 +18,10 @@
           class="code-expand-icon-show"
       /></span>
     </div>
-    <div class="demo-block-code" v-show="showCode"><slot name="highlight"></slot></div>
+    <div class="demo-block-container"  :style="[{'height':showCode?offsetHeight+'px':'0px'}]">
+       <div class="demo-block-code" ref="meate" ><slot name="highlight"></slot></div>
+    </div>
+   
   </div>
 </template>
 <script type="text/babel">
@@ -26,8 +29,14 @@
     name:'demoBlock',
     data() {
       return {
-        showCode: false
+        showCode: false,
+        offsetHeight:0
       }
+    },
+    mounted(){
+     this.$nextTick(()=>{
+        this.offsetHeight = this.$refs.meate.offsetHeight
+     })
     }
   }
 </script>
@@ -56,6 +65,7 @@
     height: 18px;
     line-height: 18px;
     text-align: center;
+  
   }
   .demo-block .demo-block-code-icon img {
     -webkit-transition: all 0.4s;
@@ -110,16 +120,23 @@
     font-family: Menlo, Monaco, Consolas, Courier, monospace;
     font-size: 14px;
   }
+  .demo-block .demo-block-container{
+    overflow: hidden;
+    transition: height 0.3s;
+  }
   .demo-block .demo-block-code {
     background-color: #f7f7f7;
     font-size: 0;
+    
+    overflow: hidden;
+    transition: height  .3s;
   }
   .demo-block .demo-block-code code {
     background-color: #f7f7f7;
     font-family: Consolas, Menlo, Courier, monospace;
     border: none;
     display: block;
-    font-size: 14px;
+    /* font-size: 14px; */
     padding: 16px 32px;
   }
   .demo-block .demo-block-code pre {
@@ -178,7 +195,7 @@
     font-size: 12px;
     padding: 18px 24px;
     background-color: #fafafa;
-    border: 1px solid #eaeefb;
+    border: none !important;
     margin-bottom: 25px;
     border-radius: 4px;
     -webkit-font-smoothing: auto;
