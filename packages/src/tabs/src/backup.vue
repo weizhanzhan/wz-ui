@@ -9,23 +9,22 @@
                             'transform':`translateX(${left}px)`,
                             'width':width+'px'
                         }]"
-                    />
-                    <template v-for="slot in $slots.default">
-                        <div
-                            :key="slot.componentOptions.propsData.name"
-                            class="wz-tabs__item" 
-                            :ref="slot.componentOptions.propsData.name"
-                            @click="select(slot.componentOptions.propsData.name)">     
-                                <span :ref="slot.componentOptions.propsData.name+'-span'"> 
-                                   {{slot.componentOptions.propsData.label}}
-                                </span>
-                        </div>            
-                    </template>              
+                    ></div>
+                    <div 
+                        class="wz-tabs__item" 
+                        v-for="n in 8" :key="n"
+                        ref="item"
+                        @click="select(n,$event)"
+                        >
+                        <span ref="tabSpan">tab{{n}}</span>
+                    </div>
+                  
                 </div>
             </div>
         </div>
         <div class="wz-tabs__content">
-            <slot></slot>     
+            {{active}}
+            <slot></slot>
         </div>
     </div>
 </template>
@@ -35,26 +34,25 @@ export default {
     name:'wz-tab',
     data () {
         return {
-            active:'',
+            active:0,
             width:0,
             left:0
         }
     },
     methods:{
-        select(ref){
+        select(num){
             /**
              * offsetLeft 元素距离左部的位置 包括内外边距
              */
-            let dom = this.$refs[ref][0]
- 
-            let span =  this.$refs[ref+'-span'][0]
+            let dom = this.$refs.item[num-1]
+            let span =  this.$refs.tabSpan[num-1]
             let spanLeft = span.offsetLeft
             this.left = dom.offsetLeft + spanLeft
-            // var computedStyle = document.defaultView.getComputedStyle(dom, null);
-            // console.log(computedStyle.offsetLeft,dom.offsetLeft,spanLeft); //"red"
+            var computedStyle = document.defaultView.getComputedStyle(dom, null);
+            console.log(computedStyle.offsetLeft,dom.offsetLeft,spanLeft); //"red"
            
             this.width = this.getNodeWidth(dom)
-            this.active = ref
+            this.active = num-1
         },
         getStyle(obj, attr) {
           if (obj.currentStyle) {
@@ -81,12 +79,7 @@ export default {
         }
     },
     mounted(){
-        let defaultslot = this.$slots.default[0]
-        
-        this.active = defaultslot.componentOptions.propsData.name
-
-        let dom = this.$refs[defaultslot.componentOptions.propsData.name][0]
-
+        let dom = this.$refs.item[0]
         this.width = this.getNodeWidth(dom)
     }
 }

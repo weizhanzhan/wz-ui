@@ -5,6 +5,7 @@ import Pagination from './pagination'
 import Table from './table';
 import TableEditCell from './table/edit'
 import Tabs from './tabs/index.js'
+import TabPane from './tab-pane'
 import Vloading from './v-loading'
 
 // 存储组件列表
@@ -14,7 +15,8 @@ const components = [
     Pagination,
     Table,
     TableEditCell,
-    Tabs
+    Tabs,
+    TabPane
 
 ]
 
